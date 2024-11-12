@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.43">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>PSYC 642: General Linear Modeling (Part 1)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="SyllabusF24_files/libs/clipboard/clipboard.min.js"></script>
+<script src="SyllabusF24_files/libs/quarto-html/quarto.js"></script>
+<script src="SyllabusF24_files/libs/quarto-html/popper.min.js"></script>
+<script src="SyllabusF24_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="SyllabusF24_files/libs/quarto-html/anchor.min.js"></script>
+<link href="SyllabusF24_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="SyllabusF24_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="SyllabusF24_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="SyllabusF24_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="SyllabusF24_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PSYC 642: General Linear Modeling (Part 1)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="psychology-642" class="level1">
+<h1><a href="https://sites.google.com/view/gmu-psyc-642f/home">PSYCHOLOGY 642</a></h1>
+<section id="general-linear-modeling-part-1" class="level2">
+<h2 class="anchored" data-anchor-id="general-linear-modeling-part-1">General Linear Modeling (Part 1)</h2>
+<p><strong>Instructor: </strong> <a href="http://www.patrickemcknight.com">Patrick E. McKnight, Ph.D.</a><br>
+Email: pmcknigh at gmu dot edu<br>
+<a href="https://psychology.gmu.edu/people/pmcknigh">Official GMU faculty page</a><br>
+<strong>Office:</strong> David King Hall 2064/2065<br>
+<strong>Office Hours:</strong> Thurs 10:30a-noon or appointment<br>
+<strong>Phone:</strong> (703) 993-8292<br>
+<a href="https://sites.google.com/view/gmu-psyc-642f/home">Course Website</a><br>
+<strong>Class Location:</strong> Tues/Thurs 9am-10:15<br>
+Innovation Hall 333<br>
+<a href="https://psychology.gmu.edu/courses/6468/course_sections/105778"><strong>Online Catalog Entry</strong></a><br>
+<a href="https://groups.google.com/g/psyc642"><strong>Class Google Group</strong></a></p>
+<hr>
+</section>
+</section>
+<section id="course-overview" class="level1">
+<h1>Course Overview</h1>
+<p>Psychology 642 is the first course of a two-course sequence that serves to introduce psychology graduate students to the <a href="https://youtu.be/wfhD_ox4Srw">general linear model</a>. Traditional graduate psychology statistics courses emphasize statistical techniques as a matter of declarative knowledge. Students are expected to know each procedure and its “appropriate” application. An alternative approach tends toward technical discourse (e.g., matrix algebra, formula memorization, and hand calculations) and requires greater attention to minute detail and mathematical vernacular. A less used but equally suitable approach treats statistics as a method of principled argument. The method I use for this course is a hybrid of the three approaches. You will be expected to know the statistical terminology, apply your knowledge in both carrying out the procedures as well as interpreting the results, and then you will be expected to use the results in a manner consistent with scientific discourse.</p>
+</section>
+<section id="course-objectives" class="level1">
+<h1>Course Objectives</h1>
+<p>The purpose of this course is to further your introduction to data analysis, research design, and measurement. Your course work to date ought to have prepared you well by covering measures of central tendency, measures of dispersion, measures of association, and measures of difference. Due to time constraints, I do not intend to review these terms or their purposes so I urge every student to review that material prior to this course. What I do intend to cover is a comprehensive view of univariate, bivariate and multivariate statistics - why we use statistics, why you should learn these tools, and what are the most important features to learn and understand. You will gain practical skills in interpreting, applying and explaining statistical procedures. The combination of didactic sessions (remote) and weekly laboratory meetings with students will offer each student the opportunity to see the procedures, conduct the procedures yourselves, and then teach one another what you learned. See one, do one, and teach one is a standard approach used in contemporary medical education and modern project-based learning.</p>
+</section>
+<section id="course-prerequisites" class="level1">
+<h1>Course Prerequisites</h1>
+<p>Students ought to recognize and understand the following concepts and terms: measures of central tendency (e.g., mean, median, mode), measures of dispersion (e.g., variance, standard deviation, range), tests of difference (e.g., t-tests, ANOVA), measures of association (e.g., correlation, covariance), tests of association (e.g., multiple regression, chi-square), and research design. <strong>Students who are not well-prepared with previous statistical coursework will be strongly encouraged to take a more introductory course.</strong></p>
+<p>Do yourselves a favor and watch <a href="https://youtu.be/eYTumjgE2IY?t=170">this video</a>. Stop at the 4:40 mark and we will discuss why videos are not helpful to those who wish to actually <strong>learn</strong> statistics. After watching the 1 minute and 50 seconds of one of the top rated YouTube videos on regression, you will appreciate the value added by buying my time and attention. Watch it. Ask me to discuss it or I will assume nobody read the syllabus/website.</p>
+<p>By the end of the semester, you will achieve the following:</p>
+</section>
+<section id="learning-objectives" class="level1">
+<h1>Learning Objectives</h1>
+<ol type="1">
+<li><strong>Learn</strong> <a href="https://sites.google.com/d/171xl86-rz0_Ic_kvh1GWB-nNJm60Qc0B/p/1KVA12dyhkQnVrXhk9vkgiCdC9CCENcLx/edit">a statistical software package</a><br>
+</li>
+<li><strong>Generate</strong> statistical results independent of others<br>
+</li>
+<li><strong>Interpret</strong> results accurately<br>
+</li>
+<li><strong>Understand</strong> of the limitations of inference<br>
+</li>
+<li><strong>Develop</strong> a vocabulary that allows you to read and interpret the literature<br>
+</li>
+<li><strong>Gain</strong> in ability to choose the appropriate analytic approach for a specific question</li>
+</ol>
+</section>
+<section id="reading-materials" class="level1">
+<h1>Reading Materials</h1>
+<section id="required-textbooks-links-req-gmu-authorization" class="level2">
+<h2 class="anchored" data-anchor-id="required-textbooks-links-req-gmu-authorization">Required Textbooks (links req GMU authorization)</h2>
+<ul>
+<li><a href="https://methods-sagepub-com.mutex.gmu.edu/book/analysis-of-variance">Iversen, G.R. and Norporth, H. Analysis of Variance</a> (Sage University Paper Series on Quantitative Applications in the Social Sciences, No.&nbsp;07-001). Newbury Park, CA: Sage. (ISBN: 978-0803930018) - <strong>ref “IN” below</strong><br>
+</li>
+<li><a href="https://methods-sagepub-com.mutex.gmu.edu/book/reliability-and-validity-assessment">Carmines, E.G. and Zeller, R.A. (1979). Reliability and Validity Assessment.</a> (Sage University Paper Series on Quantitative Applications in the Social Sciences, No.&nbsp;07-017). Newbury Park, CA: Sage. (ISBN: 978-0803913714) - <strong>ref “CZ” below</strong><br>
+</li>
+<li>Lewis-Beck, M.S. (1976). <a href="https://methods-sagepub-com.mutex.gmu.edu/book/applied-regression/n3.xml?fromsearch=true">Applied Regression: An Introduction.</a> (Sage University Paper Series on Quantitative Applications in the Social Sciences, No.&nbsp;07-022). Newbury Park, CA: Sage. (ISBN: 978-1483381473) - <strong>ref “L-B” below</strong><br>
+</li>
+<li>Fox, J. (1991). <a href="https://methods-sagepub-com.mutex.gmu.edu/book/regression-diagnostics">Regression diagnostics.</a> (Sage University Paper Series on Quantitative Applications in the Social Sciences, No.&nbsp;07-079). Newbury Park, CA: Sage. (ISBN: 978-0803939714) - <strong>ref “Fox” below</strong></li>
+</ul>
+</section>
+<section id="optional-textbooks" class="level2">
+<h2 class="anchored" data-anchor-id="optional-textbooks">Optional Textbooks</h2>
+<ul>
+<li>Bruning, J.L. and Kintz, B.L. (1997). Computational handbook of statistics (4th Edition). Allyn &amp; Bacon. (ISBN: 978-0673990853).<br>
+</li>
+<li>Vickers, A.J. (2009). What is a p-value anyway? 34 stories to help you understand statistics. Addison Wesley. (ISBN: 978-0321629302)<br>
+</li>
+<li><em>Abelson, R.P. (1995). Statistics as principled argument. Lawrence Erlbaum Associates, Hillsdale, NJ. (ISBN: 0-8058-0528-1).</em><br>
+</li>
+<li><em>van Belle, G. (2002). Statistical rules of thumb. Wiley-Interscience: New York. (ISBN: 0-4714-0227-3)</em></li>
+</ul>
+</section>
+<section id="additional-optional-readings---directions-please-read" class="level2">
+<h2 class="anchored" data-anchor-id="additional-optional-readings---directions-please-read">Additional Optional Readings - DIRECTIONS (please read)</h2>
+<p>Linked below in the Module Content section are optional readings. These readings are intended to challenge your understanding of the topic. Read them. Take some time to read them early in the module. Each one pushes your working statistical vocabulary. You will not understand all the points in each article right away, however, you will take from each an understanding of something you never knew before. What did you learn? Tell me what you learned but do so by behaving in a way that exhibits that knowledge - not by false report (ahem…cheating) or rote form (i.e., regurgitate to me what I said to you) but rather in an accurate, succinct, and knowing manner. Permit me to contrast them. Exhibit your knowledge of effect sizes:</p>
+<p><strong>False Report:</strong> &lt;via chatGPT or any other LLM&gt; Effect sizes quantify the magnitude of relationships or intervention impacts in statistics. Common measures include Cohen’s d, Pearson’s r, and odds ratio. They help interpret results by providing standardized, practical significance regardless of sample size, aiding comparisons across studies.</p>
+<p><strong>Rote:</strong> Effect sizes are defined with the following equation (d = (x1 - x2)/sp). Large effects are around 1 and small effects are close to zero. Effect sizes are important for calculating statistical power. Cohen said that effect sizes (d) estimates of 1+ are large, .5, medium, and .2 small. Effect sizes are also important for statistical power.</p>
+<p><strong>Deeper:</strong> When we find something significantly different, we only know that the observed mean difference is not consistent with the null hypothesis of <strong>no mean difference</strong>. In short, we know p(D | H0) &lt; 0.05. What we do not know is how big of a difference is it and should it matter? The “big” and “mattering” questions can only be estimated. Estimating size or big comes in the form of effect size as an estimate of magnitude but not of importance. An effect size is a metric of magnitude (i.e., “how big”) and can calculated in <a href="https://drive.google.com/file/d/1GoNvPhCbzAntJzSDQ0LQN46ppUBBA9n0/view?usp=sharing">many ways</a> (Yeaton &amp; Sechrest, 1981); I prefer Cohen’s d (x1 - x2 / s*). Regardless, most estimates are “standardized” in a way that they can be modestly compared. Effect size is also relevant to statistical power; larger effects can more readily be detected. Do you have any questions?</p>
+<p><strong>You can do it!</strong> Give me a deeper appreciation of your knowledge. Show me what you know.</p>
+</section>
+</section>
+<section id="grading-criteria-rubric" class="level1">
+<h1>Grading Criteria &amp; Rubric</h1>
+<section id="grading-basis" class="level2">
+<h2 class="anchored" data-anchor-id="grading-basis">Grading Basis</h2>
+<p>Grades will be determined by performance ratings on <strong>three</strong> video presentations and your attendance.</p>
+<section id="video-presentation" class="level3">
+<h3 class="anchored" data-anchor-id="video-presentation">Video Presentation</h3>
+<p>Put together a script that demonstrates your knowledge of the material listed in the module notes. Recording videos requires you to organize your thoughts, select the material most indicative of your knowledge and articulate your ideas succinctly (in 15 mintues or fewer). Each student must independently demonstrate proficiency with the statistical procedures; the video format allows you to present everything you know in a concise and well-organized presentation. All videos are <strong>limited to 15 minutes</strong>; speed and fluency of your performance will be indicative of your proficiency. Students may submit a video at any time but no later than 72 hours before grades are due at the end of the semester. The later you submit your videos, the less time (or chance) you have to redo it if you should fail; why is this detail important? Each student may <strong>retake one and only one module after failure</strong>. Due to limited resources, we (my TA and I) must limit the number of retakes to one and the retake must be completed within two weeks of the failed attempt. All retakes must be submitted prior to the last day of classes. Failure to send and receive a grade on your work results in a zero (“0”) for that module. Please help us all avoid such problems.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Grading Rubric for Module Videos</caption>
+<colgroup>
+<col style="width: 2%">
+<col style="width: 57%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Grade</th>
+<th style="text-align: left;">Expectations</th>
+<th style="text-align: left;">Evaluation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Accurately produce and interpret the output required for the module and seamlessly integrate the optional readings.</td>
+<td style="text-align: left;">Passed with distinction. Knows the material and exerts the effort to teach me.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Accurately produce and interpret the output required for the module.</td>
+<td style="text-align: left;">Passed module. Knows the material.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">Does not accurately produce and/or interpret the output required for the module.</td>
+<td style="text-align: left;">Failed module. Must redo within 2 weeks.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Grade</th>
+<th style="text-align: center;">Expectations</th>
+<th style="text-align: center;">Evaluation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pass with distinction. Knows the material and exerts the effort to teach me.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Accurately produce and interpret the output required for the module.</td>
+<td style="text-align: center;">Passed module. Knows the material.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Does not accurately produce and/or interpret the output required for the module.</td>
+<td style="text-align: center;">Failed module. Must redo within 2 weeks.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attendance" class="level3">
+<h3 class="anchored" data-anchor-id="attendance">Attendance</h3>
+<p>Each of you will be assigned a seat at the start of the semester. Populate that seat from 9:05am until either the class is dismissed and/or you have an excused absence (counted in total at the end of the semester). I have never taken attendance in my graduate courses in 30+ years. This year marks a new change. Woody Allen famously said “80% of success is showing up.” Over the past 3 years, students just stopped showing up. Now, I will hold you accountable for showing up. By showing up, you will learn more, get acquainted with your fellow students, accumulate more social connections, be healthier, and, most importantly, you will be better for it. I want you to show and stay up for all but two weeks of the semester. Yes, that is right. You get 2 weeks of “vacation” from the class. Once you exceed those two weeks, you must pay with your grade. Here are the cut-offs:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Times absent from class</th>
+<th style="text-align: center;">Attend Pts</th>
+<th style="text-align: center;">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1-4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">Well done, you showed up! You are on your way to stardom.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4-11</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">You made the effort, well done. Are you sure you are in my section? I probably won’t remember your name.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12 - 28</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">Who are you? More than 40% of the class missed. I don’t recognize you.</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="grading-rubric" class="level2">
+<h2 class="anchored" data-anchor-id="grading-rubric">Grading Rubric</h2>
+<p>Performance on the modules will be graded on ternary scale (3-levels) where level 0 represents a failure to complete the module, level 1 represents a passing grade for the module, and level 2 represents a passing grade with the optional reading well-integrated into your responses. Since these are recordings of your presentations, I will not have the opportunity to prompt you; thus, you must communicate whatever you know about the topics within 15 mintues.</p>
+</section>
+<section id="final-grades" class="level2">
+<h2 class="anchored" data-anchor-id="final-grades">Final Grades</h2>
+<p>Three module videos that range from 0 to 2 each combine to give you a total score that ranges between 0 and 6. I assign final grades as follows:</p>
+<p><strong>6 pts = A; 5 pts = A-; 3-4 pts = B; 2 pts = C; &lt; 2 pts = F</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Grade</th>
+<th style="text-align: center;">Module Pts</th>
+<th style="text-align: center;">Attend Pts</th>
+<th style="text-align: center;">GPA Pts</th>
+<th style="text-align: center;">Performance / Degree Relevance</th>
+<th style="text-align: center;">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A+</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4.00</td>
+<td style="text-align: center;">Satisfactory / Passing</td>
+<td style="text-align: center;">Future GTA for stats - exceptional performances</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4.00</td>
+<td style="text-align: center;">Satisfactory / Passing</td>
+<td style="text-align: center;">GTA potential - good performances</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">A-</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">3.67</td>
+<td style="text-align: center;">Satisfactory / Passing</td>
+<td style="text-align: center;">Some flaws but good performances</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B+</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3.33</td>
+<td style="text-align: center;">Satisfactory / Passing</td>
+<td style="text-align: center;">Something went wrong but strong effort</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1/0</td>
+<td style="text-align: center;">3.00</td>
+<td style="text-align: center;">Satisfactory / Passing</td>
+<td style="text-align: center;">Effort? Motivation?</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B-</td>
+<td style="text-align: center;">3*</td>
+<td style="text-align: center;">1/0</td>
+<td style="text-align: center;">2.67</td>
+<td style="text-align: center;">Satisfactory** / Passing</td>
+<td style="text-align: center;">Effort, Motivation, or Ability?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">2.00</td>
+<td style="text-align: center;">Unsatisfactory / Passing</td>
+<td style="text-align: center;">Something went terribly wrong. Lose funding</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">1-0</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.00</td>
+<td style="text-align: center;">Unsatisfactory / Failing</td>
+<td style="text-align: center;">Where are you? Lose funding. ARGH!</td>
+</tr>
+</tbody>
+</table>
+<p><strong>*</strong> A total of 3 points from the modules (3 x 1 pts is the only way you can get that total because a 2, 1, and 0 add to 3 but you MUST PASS ALL THREE MODULES TO PASS. Thus, you get three (3) 1’s on the modules but each one is a “barely squeaked by” performance lands you with a 3* performance and a “B mini” for the class.</p>
+<p><strong>**</strong>Although a B- is a satisfactory grade for a course, students must maintain a 3.00 average in their degree program and present a 3.00 GPA on the courses listed on the graduation application.</p>
+<p><a href="https://catalog.gmu.edu/policies/academic/grading/#ap3-2">GMU Graduate Grading Policies</a></p>
+</section>
+</section>
+<section id="module-content" class="level1">
+<h1>Module Content</h1>
+<p>The course content breaks down in this course to three modules as listed below. Each requires you to learn a set of concepts, integrate them into a coherent story, and apply them to data (linked below). For each module, you will have different data. All data come from a random generation process that I can reproduce the answers.</p>
+<section id="module-1-introduction-to-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="module-1-introduction-to-data-analysis">MODULE 1: Introduction to Data Analysis</h2>
+<ol type="1">
+<li>Distributions (Optional Readings: <a href="https://drive.google.com/open?id=0B1KESQbSMul1UDlINElPSWcteHM">1</a>; <a href="https://drive.google.com/open?id=0B1KESQbSMul1VHJpTnhReGxvMzA">2</a>)<br>
+</li>
+<li>Measures of central tendency<br>
+</li>
+<li>Measures of dispersion<br>
+</li>
+<li>Data integrity<br>
+</li>
+<li>Data transformations</li>
+</ol>
+<p><strong>BUT NOT IN THAT ORDER. Please. Make me believe you know what you are talking about with these terms.</strong></p>
+</section>
+<section id="module-2-the-nuts-and-bolts-optional-readings-1-2-3" class="level2">
+<h2 class="anchored" data-anchor-id="module-2-the-nuts-and-bolts-optional-readings-1-2-3"><strong>MODULE 2: The Nuts and Bolts</strong> (Optional Readings: <a href="https://drive.google.com/open?id=0B1KESQbSMul1UlFyY1dLQkJlODA">1</a>; <a href="https://drive.google.com/open?id=0B1KESQbSMul1UmstZEU0ajg4aEE">2</a>; <a href="https://drive.google.com/open?id=0B1KESQbSMul1T1h4b0lkbmRuTG8">3</a>)</h2>
+<ol type="1">
+<li>Measures of Association<br>
+</li>
+<li>Reliability and Validity (?)<br>
+</li>
+<li>Measures of Difference<br>
+</li>
+<li>What’s in a p? (Deeper Dive: Vickers, 2009)<br>
+</li>
+<li>Statistical power</li>
+</ol>
+</section>
+<section id="module-3-the-basic-glm-optional-readings-1-2" class="level2">
+<h2 class="anchored" data-anchor-id="module-3-the-basic-glm-optional-readings-1-2"><strong>MODULE 3: The Basic GLM</strong> (Optional Readings: <a href="https://drive.google.com/open?id=0B1KESQbSMul1bUdkRk5SdmxHNk0">1</a>; <a href="https://drive.google.com/open?id=0B1KESQbSMul1VEc5Q1ZhcDV5ajg">2</a>)</h2>
+<ol type="1">
+<li>Bivariate regression &amp; one-way ANOVA<br>
+</li>
+<li>Multiple regression &amp; ANOVA (only main effects)<br>
+</li>
+<li>Sums of Squares</li>
+</ol>
+</section>
+</section>
+<section id="human-subjects-training" class="level1">
+<h1>Human Subjects Training</h1>
+<p>One final requirement for PSYC 642 is the successful completion of the Collaborative Institutional Training Initiative (CITI) program. The program consists of an online exam that ensures that all persons who engage in work with human subjects understands the inherent risks you may expose those subjects to and how to avoid those risks. Additional information is <a href="https://oria.gmu.edu/topics/human-subjects-new/training/">available here</a>. All students must show documentation that CITI course was completed to fulfill the PSYC 642 requirements. <strong>Please submit your CITI training information to the following Google Form:</strong> <a href="https://forms.gle/NVrJgUFDvsUibgT66">https://forms.gle/NVrJgUFDvsUibgT66</a></p>
+</section>
+<section id="lecture-format" class="level1">
+<h1>Lecture Format</h1>
+<p>We meet twice a week. On Tuesdays, I will discuss theory; Thursday, I discuss the practical application. Come both days so you get the complete story. Each week comes complete with me and some video links. Watch them. Also, I have readings that are advised but strongly encouraged. Regarding the videos, I link videos of my own and of others (who offer them via a permissive license) throughout the notes. Often, the links change as the resources change. Please consult the website often and report any dead links or needless paywalled material; I shall fix posthaste. When reporting, please send me the page and the link to the resource that appears dead. Simply telling me that there are dead links without any guidance leads me to a never-ending chase. Please help me help you. I thank you in advance for any and all assistance in making your learning resources more complete. Thank you.</p>
+</section>
+<section id="lab-format" class="level1">
+<h1>Lab Format</h1>
+<p>The statistics lab content strictly parallels the course content. Please consult the course web site for changes in topics covered each week. Attendance at the lab is essential and required for you to master the skills discussed in the lecture and it serves as an excellent opportunity to test yourselves on the modules.</p>
+</section>
+<section id="academic-honesty" class="level1">
+<h1>Academic Honesty</h1>
+<p>I must state for the record that cheating of any kind will be dealt with by rules set forth in the <a href="http://masononline.gmu.edu/student-resources/academicintegrity/">University Honor Code</a>. I prefer never to have any academic integrity problems arise during the semester. The aim of graduate education is to learn material that many others have not learned and master this material to ensure your future success. The degree you receive reflects the hard work you put into your courses. Please do not cheat yourself by misrepresenting your effort. Do the work or accept the consequences. Spend your effort learning the material and avoid being overly grade conscious. With a concerted effort to learn, you will not be tempted to cheat.</p>
+</section>
+<section id="chatgpt-and-other-llms" class="level1">
+<h1>ChatGPT (and other LLMs)</h1>
+<p>George Mason University has a fairly clear policy with respect to AI and generated AI content being passed along as if it were the student’s own work. I share that because deep down inside, I think we all wish to have a well-educated alumni group from GMU that we trust in their credentials. I hope you wish that to be the case or else your degree from here will not be worth much to others. These models are exceptional, however, as tutors that can supercharge even the most timid student. My policy for chatGPT and other LLM models, <strong><em>USE THEM.</em></strong> Learn how to use them wisely. Don’t waste my time or your opportunity to learn by letting them represent your work and your thoughts. It’s your money and time. It is our reputation. Let’s work together to make your degree worth more than the paper it was printed upon. <strong><em>So, use them; do not abuse them (or you).</em></strong></p>
+</section>
+<section id="disability-accommodations" class="level1">
+<h1>Disability Accommodations</h1>
+<p>If you are a student with a disability and you need academic accommodations, please see me and contact the Disability Resource Center (DRC) at 703-993-2474. All academic accommodations must be arranged through that office.</p>
+</section>
+<section id="important-dates" class="level1">
+<h1>Important Dates</h1>
+<p><strong>9/3</strong> (Last day to add classes)<strong>, 9/9</strong> (Final drop deadline with no tuition penalty), <strong>9/18-10/1</strong> (Web withdrawal period with 100% liability), <strong>10/14</strong> (Fall break - no Tues class), <strong>11/5</strong> (Election Day - no class), <strong>11/27-12/1</strong> (Thanksgiving recess), <strong>12/9</strong> (Last day of classes)</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
