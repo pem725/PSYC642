@@ -1,0 +1,13 @@
+---
+title: "Generate Module 2 Data"
+author: "Patrick E. McKnight"
+format: html
+---
+
+```{r}
+# Load the necessary libraries
+library(tidyverse)
+
+
+```
+

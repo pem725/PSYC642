@@ -1,0 +1,71 @@
+---
+title: "Module 2 Demo"
+author: "Patrick McKnight"
+date: "10/8/2017"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+## The Data
+
+```{r echo=FALSE, message=FALSE}
+library(psych)
+dat <- read.csv("MODdat2.csv",T)
+psych::describe(dat,skew=F,ranges=F)
+```
+
+
+## CTT
+
+- O = T + E
+- rho = T/O
+- alpha is the test I plan to use for estimating rho (reliability)
+
+## CTT analysis of x1..x10
+
+```{r echo = FALSE, message=FALSE}
+out <- alpha(dat[,1:10],check.keys = T)
+round(out$alpha.drop,2)
+```
+
+## Alpha changes by item
+
+```{r echo=FALSE, message=FALSE}
+library(ggplot2)
+outD <- data.frame(out$alpha.drop)
+ggplot(outD,aes(outD$raw_alpha)) + geom_histogram() + xlab("Alpha if item deleted") + geom_vline(xintercept = out$total$raw_alpha, color="red", lwd=3)
+```
+
+## Hypothesis Testing
+
+```{r echo=FALSE, message=FALSE}
+dat$xTot <- out$scores
+out2 <- aov(xTot~sex,data=dat)
+summary(out2)
+```
+
+## Effect size
+
+```{r echo=FALSE, message=FALSE}
+EScalc <- function(dv,cond){
+  lvl <- levels(as.factor(cond))
+  x1 <- dv[cond==lvl[1]]
+  x2 <- dv[cond==lvl[2]]
+  out <- round((mean(x1) - mean(x2))/sqrt((var(x1)+var(x2))/2),2)
+  return(out)
+}
+ESout <- EScalc(dat$xTot,dat$sex)
+print(ESout)
+```
+
+## Hey, how about power?
+
+```{r echo=FALSE, message=FALSE}
+library(pwr)
+pwr.anova.test(2,15,ESout)
+```
+

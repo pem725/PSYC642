@@ -1,0 +1,66 @@
+Module 2 Demonstration
+========================================================
+author: Patrick
+date: 8/8/20
+autosize: true
+
+The Data
+========================================================
+
+```{r, echo=F}
+dat <- read.csv("./MODdat2gd.csv")
+library(psych)
+describe(dat)
+```
+
+
+Scale Development: Reliability
+========================================================
+
+```{r, echo=FALSE}
+out1 <- alpha(dat[,c(1,3,4,6,7)])
+summary(out1)
+```
+
+Scale Development:  Item Statistics
+========================================================
+
+```{r, echo=FALSE}
+out1$item.stats
+```
+
+Scale Development:  Validity (predictive)
+========================================================
+
+```{r, echo=FALSE}
+dat$scores <- out1$scores
+summary(lm(y2~scores,dat))
+```
+
+Hypothesis Testing: A T-test
+========================================================
+
+```{r, echo=FALSE}
+dat2 <- dat[dat$y1==0 | dat$y1==-1,]
+t.test(scores~y1,data=dat2)
+```
+
+Hypothesis Testing:  A priori power
+========================================================
+
+```{r, echo=FALSE}
+library(pwr)
+pwr.t.test(n=15,d=.6,sig.level=.05,type="two.sample")
+```
+
+Hypothesis Testing:  My effect size
+=======================================================
+```{r, echo=F}
+m1 <- mean(dat2$scores[dat2$y1==-1])
+m2 <- mean(dat2$scores[dat2$y1==0])
+s1 <- sd(dat2$scores[dat2$y1==-1])
+s2 <- sd(dat2$scores[dat2$y1==0])
+d <- m2 - m1 /(sqrt((s1^2+s2^2)/2))
+d
+```
+

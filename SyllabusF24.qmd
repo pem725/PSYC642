@@ -1,0 +1,208 @@
+---
+title: "PSYC 642: General Linear Modeling (Part 1)"
+---
+
+
+# [PSYCHOLOGY 642](https://sites.google.com/view/gmu-psyc-642f/home)
+
+## General Linear Modeling (Part 1\)
+
+**Instructor: ** [Patrick E. McKnight, Ph.D.](http://www.patrickemcknight.com)  
+Email:  pmcknigh at gmu dot edu  
+[Official GMU faculty page](https://psychology.gmu.edu/people/pmcknigh)  
+**Office:**  David King Hall 2064/2065  
+**Office Hours:**  Thurs 10:30a-noon or appointment  
+**Phone:**  (703) 993-8292  
+[Course Website](https://sites.google.com/view/gmu-psyc-642f/home)  
+**Class Location:**  Tues/Thurs 9am-10:15  
+Innovation Hall 333  
+[**Online Catalog Entry**](https://psychology.gmu.edu/courses/6468/course\_sections/105778)  
+[**Class Google Group**](https://groups.google.com/g/psyc642)  
+---
+
+
+# Course Overview 
+
+Psychology 642 is the first course of a two-course sequence that serves to introduce psychology graduate students to the [general linear model](https://youtu.be/wfhD\_ox4Srw).  Traditional graduate psychology statistics courses emphasize statistical techniques as a matter of declarative knowledge. Students are expected to know each procedure and its “appropriate” application. An alternative approach tends toward technical discourse (e.g., matrix algebra, formula memorization, and hand calculations) and requires greater attention to minute detail and mathematical vernacular. A less used but equally suitable approach treats statistics as a method of principled argument. The method I use for this course is a hybrid of the three approaches. You will be expected to know the statistical terminology, apply your knowledge in both carrying out the procedures as well as interpreting the results, and then you will be expected to use the results in a manner consistent with scientific discourse. 
+
+# Course Objectives 
+
+The purpose of this course is to further your introduction to data analysis, research design, and measurement. Your course work to date ought to have prepared you well by covering measures of central tendency, measures of dispersion, measures of association, and measures of difference. Due to time constraints, I do not intend to review these terms or their purposes so I urge every student to review that material prior to this course. What I do intend to cover is a comprehensive view of univariate, bivariate and multivariate statistics \- why we use statistics, why you should learn these tools, and what are the most important features to learn and understand. You will gain practical skills in interpreting, applying and explaining statistical procedures. The combination of didactic sessions (remote) and weekly laboratory meetings with students will offer each student the opportunity to see the procedures, conduct the procedures yourselves, and then teach one another what you learned. See one, do one, and teach one is a standard approach used in contemporary medical education and modern project-based learning.
+
+# Course Prerequisites 
+
+Students ought to recognize and understand the following concepts and terms: measures of central tendency (e.g., mean, median, mode), measures of dispersion (e.g., variance, standard deviation, range), tests of difference (e.g., t-tests, ANOVA), measures of association (e.g., correlation, covariance), tests of association (e.g., multiple regression, chi-square), and research design. **Students who are not well-prepared with previous statistical coursework will be strongly encouraged to take a more introductory course.** 
+
+Do yourselves a favor and watch [this video](https://youtu.be/eYTumjgE2IY?t=170).  Stop at the 4:40 mark and we will discuss why videos are not helpful to those who wish to actually **learn** statistics.  After watching the 1 minute and 50 seconds of one of the top rated YouTube videos on regression, you will appreciate the value added by buying my time and attention.  Watch it. Ask me to discuss it or I will assume nobody read the syllabus/website.
+
+By the end of the semester, you will achieve the following:
+
+# Learning Objectives
+
+1. **Learn** [a statistical software package](https://sites.google.com/d/171xl86-rz0\_Ic\_kvh1GWB-nNJm60Qc0B/p/1KVA12dyhkQnVrXhk9vkgiCdC9CCENcLx/edit)  
+2. **Generate** statistical results independent of others  
+3. **Interpret** results accurately  
+4. **Understand** of the limitations of inference  
+5. **Develop** a vocabulary that allows you to read and interpret the literature  
+6. **Gain** in ability to choose the appropriate analytic approach for a specific question
+
+# Reading Materials
+
+## Required Textbooks (links req GMU authorization)
+
+* [Iversen, G.R. and Norporth, H. Analysis of Variance](https://methods-sagepub-com.mutex.gmu.edu/book/analysis-of-variance) (Sage University Paper Series on Quantitative Applications in the Social Sciences, No. 07-001). Newbury Park, CA: Sage. (ISBN: 978-0803930018) \- **ref "IN" below**  
+* [Carmines, E.G. and Zeller, R.A. (1979). Reliability and Validity Assessment.](https://methods-sagepub-com.mutex.gmu.edu/book/reliability-and-validity-assessment) (Sage University Paper Series on Quantitative Applications in the Social Sciences, No. 07-017). Newbury Park, CA: Sage. (ISBN: 978-0803913714) \- **ref "CZ" below**  
+* Lewis-Beck, M.S. (1976). [Applied Regression: An Introduction.](https://methods-sagepub-com.mutex.gmu.edu/book/applied-regression/n3.xml?fromsearch=true) (Sage University Paper Series on Quantitative Applications in the Social Sciences, No. 07-022). Newbury Park, CA: Sage. (ISBN: 978-1483381473) \- **ref "L-B" below**  
+* Fox, J. (1991). [Regression diagnostics.](https://methods-sagepub-com.mutex.gmu.edu/book/regression-diagnostics) (Sage University Paper Series on Quantitative Applications in the Social Sciences, No. 07-079). Newbury Park, CA: Sage. (ISBN: 978-0803939714) \- **ref "Fox" below**
+
+## Optional Textbooks
+
+* Bruning, J.L. and Kintz, B.L. (1997). Computational handbook of statistics (4th Edition). Allyn & Bacon. (ISBN: 978-0673990853).   
+* Vickers, A.J. (2009). What is a p-value anyway? 34 stories to help you understand statistics. Addison Wesley. (ISBN: 978-0321629302)   
+* *Abelson, R.P. (1995). Statistics as principled argument. Lawrence Erlbaum Associates, Hillsdale, NJ. (ISBN: 0-8058-0528-1).*  
+* *van Belle, G. (2002). Statistical rules of thumb. Wiley-Interscience: New York. (ISBN: 0-4714-0227-3)*
+
+## Additional Optional Readings \- DIRECTIONS (please read)
+
+Linked below in the Module Content section are optional readings.  These readings are intended to challenge your understanding of the topic.  Read them.  Take some time to read them early in the module.  Each one pushes your working statistical vocabulary.  You will not understand all the points in each article right away, however, you will take from each an understanding of something you never knew before.  What did you learn?  Tell me what you learned but do so by behaving in a way that exhibits that knowledge \- not by false report (ahem...cheating) or rote form (i.e., regurgitate to me what I said to you) but rather in an accurate, succinct, and knowing manner.  Permit me to contrast them.  Exhibit your knowledge of effect sizes:
+
+**False Report:**  \<via chatGPT or any other LLM\> Effect sizes quantify the magnitude of relationships or intervention impacts in statistics. Common measures include Cohen's d, Pearson's r, and odds ratio. They help interpret results by providing standardized, practical significance regardless of sample size, aiding comparisons across studies.
+
+**Rote:**  Effect sizes are defined with the following equation (d \= (x1 \- x2)/sp).  Large effects are around 1 and small effects are close to zero.  Effect sizes are important for calculating statistical power.  Cohen said that effect sizes (d) estimates of 1+ are large, .5, medium, and .2 small.  Effect sizes are also important for statistical power.
+
+**Deeper:**  When we find something significantly different, we only know that the observed mean difference is not consistent with the null hypothesis of **no mean difference**.  In short, we know p(D | H0) \< 0.05.  What we do not know is how big of a difference is it and should it matter?  The “big” and “mattering” questions can only be estimated.  Estimating size or big comes in the form of effect size as an estimate of magnitude but not of importance.  An effect size is a metric of magnitude (i.e., "how big") and can calculated in [many ways](https://drive.google.com/file/d/1GoNvPhCbzAntJzSDQ0LQN46ppUBBA9n0/view?usp=sharing) (Yeaton & Sechrest, 1981); I prefer Cohen's d (x1 \- x2 / s\*).  Regardless, most estimates are "standardized" in a way that they can be modestly compared.  Effect size is also relevant to statistical power; larger effects can more readily be detected. Do you have any questions?
+
+**You can do it\!**  Give me a deeper appreciation of your knowledge.  Show me what you know.
+
+# Grading Criteria & Rubric
+
+## Grading Basis
+
+Grades will be determined by performance ratings on **three** video presentations and your attendance.
+
+### Video Presentation
+
+Put together a script that demonstrates your knowledge of the material listed in the module notes.  Recording videos requires you to organize your thoughts, select the material most indicative of your knowledge and articulate your ideas succinctly (in 15 mintues or fewer).  Each student must independently demonstrate proficiency with the statistical procedures; the video format allows you to present everything you know in a concise and well-organized presentation.  All videos are **limited to 15 minutes**; speed and fluency of your performance will be indicative of your proficiency. Students may submit a video at any time but no later than 72 hours before grades are due at the end of the semester.  The later you submit your videos, the less time (or chance) you have to redo it if you should fail; why is this detail important?  Each student may **retake one and only one module after failure**. Due to limited resources, we (my TA and I) must limit the number of retakes to one and the retake must be completed within two weeks of the failed attempt. All retakes must be submitted prior to the last day of classes.  Failure to send and receive a grade on your work results in a zero ("0") for that module.  Please help us all avoid such problems.
+
+```{r}
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+#| error: FALSE
+
+Grade <- c(2, 1, 0)
+Expectations <- c("Accurately produce and interpret the output required for the module and seamlessly integrate the optional readings.", 
+                  "Accurately produce and interpret the output required for the module.", 
+                  "Does not accurately produce and/or interpret the output required for the module.")
+Evaluation <- c("Passed with distinction. Knows the material and exerts the effort to teach me.", 
+                  "Passed module.  Knows the material.", 
+                  "Failed module.  Must redo within 2 weeks.")
+Module_Grading <- data.frame(Grade, Expectations, Evaluation)
+
+# make the data.frame pretty for printing
+knitr::kable(Module_Grading, caption = "Grading Rubric for Module Videos")
+
+```
+
+
+
+| Grade | Expectations | Evaluation |
+| :---: | :---: | :---: |
+| 2 | | Pass with distinction. Knows the material and exerts the effort to teach me. |
+| 1 | Accurately produce and interpret the output required for the module. | Passed module.  Knows the material. |
+| 0 | Does not accurately produce and/or interpret the output required for the module. | Failed module.  Must redo within 2 weeks. |
+
+
+### Attendance
+
+Each of you will be assigned a seat at the start of the semester.  Populate that seat from 9:05am until either the class is dismissed and/or you have an excused absence (counted in total at the end of the semester).  I have never taken attendance in my graduate courses in 30+ years.  This year marks a new change.  Woody Allen famously said “80% of success is showing up.”  Over the past 3 years, students just stopped showing up.  Now, I will hold you accountable for showing up.  By showing up, you will learn more, get acquainted with your fellow students, accumulate more social connections, be healthier, and, most importantly, you will be better for it.  I want you to show and stay up for all but two weeks of the semester.  Yes, that is right.  You get 2 weeks of “vacation” from the class.  Once you exceed those two weeks, you must pay with your grade.  Here are the cut-offs:
+
+| Times absent from class | Attend Pts | Interpretation |
+| :---: | :---: | :---: |
+| 1-4 | 2 | Well done, you showed up\!  You are on your way to stardom. |
+| 4-11 | 1 | You made the effort, well done.  Are you sure you are in my section?  I probably won’t remember your name. |
+| 12 \- 28 | 0 | Who are you?  More than 40% of the class missed.  I don’t recognize you. |
+
+## Grading Rubric
+
+Performance on the modules will be graded on ternary scale (3-levels) where level 0 represents a failure to complete the module, level 1 represents a passing grade for the module, and level 2 represents a passing grade with the optional reading well-integrated into your responses. Since these are recordings of your presentations, I will not have the opportunity to prompt you; thus, you must communicate whatever you know about the topics within 15 mintues.  
+
+## Final Grades
+
+Three module videos that range from 0 to 2 each combine to give you a total score that ranges between 0 and 6\.  I assign final grades as follows:  
+
+**6 pts \= A; 5 pts \= A-; 3-4 pts \= B; 2 pts \= C; \< 2 pts \= F**
+
+| Grade | Module Pts | Attend Pts | GPA Pts | Performance / Degree Relevance | Interpretation |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| A+ | 6 | 2 | 4.00 | Satisfactory / Passing | Future GTA for stats \- exceptional performances |
+| A | 6 | 2 | 4.00 | Satisfactory / Passing | GTA potential \- good performances |
+| A- | 5 | 1 | 3.67 | Satisfactory / Passing | Some flaws but good performances |
+| B+ | 4 | 2 | 3.33 | Satisfactory / Passing | Something went wrong but strong effort |
+| B | 3 | 1/0 | 3.00 | Satisfactory / Passing | Effort? Motivation? |
+| B- | 3\* | 1/0 | 2.67 | Satisfactory\*\* / Passing | Effort, Motivation, or Ability? |
+| C | 2 | 0 | 2.00 | Unsatisfactory / Passing | Something went terribly wrong.  Lose funding |
+| F | 1-0 |  | 0.00 | Unsatisfactory / Failing | Where are you? Lose funding.  ARGH\! |
+
+**\*** A total of 3 points from the modules (3 x 1 pts is the only way you can get that total because a 2, 1, and 0 add to 3 but you MUST PASS ALL THREE MODULES TO PASS.  Thus, you get three (3) 1’s on the modules but each one is a “barely squeaked by” performance lands you with a 3\* performance and a “B mini” for the class.
+
+**\*\***Although a B- is a satisfactory grade for a course, students must maintain a 3.00 average in their degree program and present a 3.00 GPA on the courses listed on the graduation application.
+
+[GMU Graduate Grading Policies](https://catalog.gmu.edu/policies/academic/grading/\#ap3-2)
+
+# Module Content
+
+The course content breaks down in this course to three modules as listed below.  Each requires you to learn a set of concepts, integrate them into a coherent story, and apply them to data (linked below).  For each module, you will have different data.  All data come from a random generation process that I can reproduce the answers.  
+
+## MODULE 1: Introduction to Data Analysis
+
+1. Distributions (Optional Readings: [1](https://drive.google.com/open?id=0B1KESQbSMul1UDlINElPSWcteHM); [2](https://drive.google.com/open?id=0B1KESQbSMul1VHJpTnhReGxvMzA))  
+2. Measures of central tendency  
+3. Measures of dispersion  
+4. Data integrity  
+5. Data transformations
+
+**BUT NOT IN THAT ORDER.  Please.  Make me believe you know what you are talking about with these terms.**  
+
+## **MODULE 2: The Nuts and Bolts**  (Optional Readings:  [1](https://drive.google.com/open?id=0B1KESQbSMul1UlFyY1dLQkJlODA); [2](https://drive.google.com/open?id=0B1KESQbSMul1UmstZEU0ajg4aEE); [3](https://drive.google.com/open?id=0B1KESQbSMul1T1h4b0lkbmRuTG8))
+
+1. Measures of Association  
+2. Reliability and Validity (?)  
+3. Measures of Difference  
+4. What's in a p?  (Deeper Dive:  Vickers, 2009\)  
+5. Statistical power
+
+## **MODULE 3:  The Basic GLM**  (Optional Readings:  [1](https://drive.google.com/open?id=0B1KESQbSMul1bUdkRk5SdmxHNk0); [2](https://drive.google.com/open?id=0B1KESQbSMul1VEc5Q1ZhcDV5ajg))
+
+1. Bivariate regression & one-way ANOVA  
+2. Multiple regression & ANOVA (only main effects)  
+3. Sums of Squares
+
+# Human Subjects Training 
+
+One final requirement for PSYC 642 is the successful completion of the Collaborative Institutional Training Initiative (CITI) program. The program consists of an online exam that ensures that all persons who engage in work with human subjects understands the inherent risks you may expose those subjects to and how to avoid those risks. Additional information is [available here](https://oria.gmu.edu/topics/human-subjects-new/training/). All students must show documentation that CITI course was completed to fulfill the PSYC 642 requirements. **Please submit your CITI training information to the following Google Form:**  [https://forms.gle/NVrJgUFDvsUibgT66](https://forms.gle/NVrJgUFDvsUibgT66)
+
+# Lecture Format 
+
+We meet twice a week.  On Tuesdays, I will discuss theory; Thursday, I discuss the practical application.  Come both days so you get the complete story.  Each week comes complete with me and some video links.  Watch them.  Also, I have readings that are advised but strongly encouraged.  Regarding the videos, I link videos of my own and of others (who offer them via a permissive license) throughout the notes.  Often, the links change as the resources change.  Please consult the website often and report any dead links or needless paywalled material; I shall fix posthaste.  When reporting, please send me the page and the link to the resource that appears dead.  Simply telling me that there are dead links without any guidance leads me to a never-ending chase.  Please help me help you. I thank you in advance for any and all assistance in making your learning resources more complete.  Thank you.
+
+# Lab Format 
+
+The statistics lab content strictly parallels the course content. Please consult the course web site for changes in topics covered each week. Attendance at the lab is essential and required for you to master the skills discussed in the lecture and it serves as an excellent opportunity to test yourselves on the modules. 
+
+# Academic Honesty 
+
+I must state for the record that cheating of any kind will be dealt with by rules set forth in the [University Honor Code](http://masononline.gmu.edu/student-resources/academicintegrity/). I prefer never to have any academic integrity problems arise during the semester. The aim of graduate education is to learn material that many others have not learned and master this material to ensure your future success. The degree you receive reflects the hard work you put into your courses. Please do not cheat yourself by misrepresenting your effort. Do the work or accept the consequences. Spend your effort learning the material and avoid being overly grade conscious. With a concerted effort to learn, you will not be tempted to cheat. 
+
+# ChatGPT (and other LLMs)
+
+George Mason University has a fairly clear policy with respect to AI and generated AI content being passed along as if it were the student’s own work.  I share that because deep down inside, I think we all wish to have a well-educated alumni group from GMU that we trust in their credentials.  I hope you wish that to be the case or else your degree from here will not be worth much to others.  These models are exceptional, however, as tutors that can supercharge even the most timid student.  My policy for chatGPT and other LLM models, ***USE THEM.***  Learn how to use them wisely.  Don't waste my time or your opportunity to learn by letting them represent your work and your thoughts.   It's your money and time.  It is our reputation.  Let's work together to make your degree worth more than the paper it was printed upon.  ***So, use them; do not abuse them (or you).***
+
+# Disability Accommodations 
+
+If you are a student with a disability and you need academic accommodations, please see me and contact the Disability Resource Center (DRC) at 703-993-2474. All academic accommodations must be arranged through that office.
+
+# Important Dates
+
+**9/3** (Last day to add classes)**, 9/9** (Final drop deadline with no tuition penalty), **9/18-10/1** (Web withdrawal period with 100% liability), **10/14** (Fall break \- no Tues class), **11/5** (Election Day \- no class), **11/27-12/1** (Thanksgiving recess), **12/9** (Last day of classes)
+
