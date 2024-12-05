@@ -1,0 +1,174 @@
+---
+title: "Module 3 Demonstration"
+author: "Patrick E. McKnight"
+format: html
+---
+
+```{r setup}
+#| echo: false
+#| warning: false
+#| message: false
+#| error: false
+
+
+library(tidyverse)
+library(knitr)
+library(psych)
+library(car)
+library(kableExtra)
+library(MASS)
+```
+
+# Module 3 Data
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+#| error: false
+#| 
+
+# Load the data from google sheets
+dat <- read_csv("./Mod3Data - Mod3Data.csv", show_col_types = FALSE)
+kable(round(head(dat),2))
+```
+
+# Data Preparation
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+#| error: false
+
+# calculate sum scores for x1 to x7 after conducting a Cronbach's alpha analysis
+xCA <- alpha(dat[,5:11], check.keys = TRUE)
+xCA
+#summary(xCA)
+
+# create a new variable for the sum of x1 to x7
+dat$sumX <- rowSums(dat[,5:11])
+
+# show bivariate plots of x1 to x7
+pairs.panels(dat[,5:11])
+
+# make all the f variables factors
+dat$f1.f <- as.factor(dat$f1)
+dat$f2.f <- as.factor(dat$f2)
+dat$f3.f <- as.factor(dat$f3)
+dat$f4.f <- as.factor(dat$f4)
+dat$f5.f <- as.factor(dat$f5)
+dat$f6.f <- as.factor(dat$f6)
+dat$f7.f <- as.factor(dat$f7)
+dat$f8.f <- as.factor(dat$f8)
+
+
+```
+
+
+# Data Analysis
+
+## Bivariate Analysis
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+#| error: false
+
+# Bivariate model
+
+mod <- lm(y1 ~ sumX, data = dat)
+summary(mod)
+```
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+#| error: false
+
+# plot the data
+ggplot(dat, aes(x = sumX, y = y1)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "Bivariate Analysis", x = "Sum of X1 to X7", y = "Y1")
+
+```
+
+## Multivariate Analysis
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+#| error: false
+
+# Multivariate model
+
+mod2 <- lm(y1 ~ x1 + x2 + x3 + x4 + x5 + x6 + x7, data = dat)
+summary(mod2)
+
+
+kable(vif(mod2), col.names = c("Variable", "VIF"))
+
+mod3 <- lm(y1 ~ sumX + f2, data = dat)
+summary(mod3)
+
+kable(vif(mod3), col.names = c("Variable", "VIF"))
+
+
+```
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+#| error: false
+
+# plot the results of
+
+ggplot(dat, aes(x = sumX, y = y1, color = f2.f)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "Multivariate Analysis", x = "Sum of X1 to X7", y = "Y1")
+
+```
+
+# Fitting our Model (Better)
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+#| error: false
+
+# first, we need to adjust our y and x variables so that they are both positive
+dat$y1 <- dat$y1 + abs(min(dat$y1)) + 1
+dat$sumX <- dat$sumX + abs(min(dat$sumX)) + 1
+
+# perform a box-cox transformation on the bivariate model of y1 and sumX
+bc.out <- boxcox(mod, lambda = seq(-2, 2, by = 0.1))
+lambda <- bc.out$x[which(bc.out$y == max(bc.out$y))]
+lambda
+
+# fit the model with the box-cox transformation
+mod.bc <- lm(y1^lambda ~ sumX, data = dat)
+summary(mod.bc)
+
+```
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+#| error: false
+
+# plot the results of the box-cox transformation
+
+ggplot(dat, aes(x = sumX, y = y1^lambda)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "Bivariate Analysis with Box-Cox Transformation", x = "Sum of X1 to X7", y = "Y1^lambda")
+
+```
